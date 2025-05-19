@@ -5,8 +5,18 @@ import LearningCardCarousel from '../../components/LearningPath/LearningCardCaro
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Layout from '../../components/Shared/Layout';
+import { learningCards} from "@/data/learningData";
+import { Card } from "@/data/learningCourses";
 
 const LearningPathPage = () => {
+  const handleComplete = () =>  {
+    console.log("Learning Completed");
+  };
+
+  const formattedCards: Card[] = learningCards.map(card=> ({
+    ...card,
+    body: card.text,
+  }));
   return (
     <Layout>
       <motion.div 
@@ -25,7 +35,7 @@ const LearningPathPage = () => {
           <p className="text-lg text-gray-700">Swipe or use the buttons to navigate through the FIDO basics.</p>
         </motion.div>
 
-        <LearningCardCarousel />
+        <LearningCardCarousel cards={formattedCards} onComplete={handleComplete} />
 
         <motion.div 
           className="mt-12 mb-8"
