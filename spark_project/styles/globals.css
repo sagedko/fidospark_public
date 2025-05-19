@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-bg m-0 p-0; /* Ensure HTML has base background and no margin/padding */
+}
+
+body {
+  @apply bg-bg font-sans text-gray-900 m-0 p-0; /* Ensure body matches, no margin/padding */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Set Poppins as default heading font if not overridden by font-heading class */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+/* Ensure Inter is the default body font if not overridden by font-sans class */
+/* This rule is slightly redundant if html has --font-inter and body has font-sans from tailwind.config, but harmless */
+body {
+  font-family: var(--font-inter), sans-serif;
+} 
